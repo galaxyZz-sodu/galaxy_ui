@@ -19,7 +19,8 @@ import table from './data/table'
 import tableColunm from './data/tableColunm'
 import magnifier from './others/magnifier'
 import waterMark from './others/waterMark'
-
+import step from './navigation/step'
+import steps from './navigation/steps'
 const galaxyUi = {
     install(Vue, options) {
         // 组件
@@ -43,7 +44,8 @@ const galaxyUi = {
         Vue.component('g-table', table);
         Vue.component('g-tableColunm', tableColunm);
         Vue.component('g-magnifier', magnifier);
-
+        Vue.component('g-steps', steps)
+        Vue.component('g-step', step)
         // 自定义事件
         Vue.directive('waterMark', waterMark);
     }

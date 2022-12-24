@@ -27,9 +27,32 @@
       <div slot="right">
       </div>
     </g-input>
-    <g-button  @click="getMessage" style="width: 100px">
+    <g-button   @click="getMessage" style="width: 100px; margin: 20px auto">
       <div style="color:red;">开始</div>
     </g-button>
+
+    <g-steps :active="stepActive" style="margin-left: 20px">
+      <g-step></g-step>
+    <g-step></g-step>
+    <g-step></g-step>
+    <g-step></g-step>
+    <g-step></g-step>
+    <g-step></g-step>
+    <g-step>
+      <template slot="icon">
+        <span class="iconfont icon-duigou"></span>
+      </template>
+    </g-step>
+    <g-step>
+      <template slot="title">
+        hahaerre
+      </template>  
+      <template slot="icon">
+        1
+      </template>
+    </g-step> 
+    </g-steps>
+    <g-button @click="changeStepActive">下一个进度</g-button>
 
     <!-- <g-dialog :modal="true" :visible="showDialog" title="提示" width="30%">
       haha
@@ -63,11 +86,15 @@
     <g-table :data="tableData"></g-table> -->
 
     <!-- <g-magnifier :maskWidth="100" :width="500" imgUrl="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/4/8/169fd81e7d7cc8ad~tplv-t2oaga2asx-zoom-crop-mark:3024:3024:3024:1702.awebp"></g-magnifier> -->
-    <div v-waterMark="{text:'129K',textColor:'rgba(225, 225, 225, 0.3)', imgUrl:'https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcucGhwLmNuL3VwbG9hZC9pbWFnZS83OTQvMzAzLzU2NC8xNTc5NjE0NzgyODY2MDExLnBuZw?x-oss-process=image/format,png'}">
+    <!-- <div v-waterMark="{text:'129K',textColor:'rgba(225, 225, 225, 0.3)', imgUrl:'https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcucGhwLmNuL3VwbG9hZC9pbWFnZS83OTQvMzAzLzU2NC8xNTc5NjE0NzgyODY2MDExLnBuZw?x-oss-process=image/format,png'}">
       
-    </div>
+    </div> -->
     
-    <img alt="">
+    <!-- <g-carousel style="margin-top: 20px" height="250px">
+      <g-carousel-item  v-for="item in 4" :key="item">
+        <img  src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcucGhwLmNuL3VwbG9hZC9pbWFnZS83OTQvMzAzLzU2NC8xNTc5NjE0NzgyODY2MDExLnBuZw?x-oss-process=image/format,png" alt="">
+      </g-carousel-item>
+    </g-carousel> -->
 
     
   </div>
@@ -83,6 +110,7 @@ export default {
   name: 'App',
   data(){
     return {
+      stepActive: 0,
       showDialog: false,
       rateNum: 4,
       tagInfo:[
@@ -186,6 +214,15 @@ export default {
     HelloWorld
   },
   methods: {
+    changeStepActive() {
+      if (this.stepActive < 8) {
+        this.stepActive++;
+      } else {
+        this.stepActive = 0
+      }
+      // this.stepActive += 1;
+      console.log(this.stepActive)
+    },
     openhaha() {
       this.isOpen = false;
     },
@@ -253,7 +290,7 @@ body {
 }
 button {
   margin-left: 20px;
-  color: #5679A6;
+  /* color: #5679A6; */
 }
 .slot {
   /* background-color: red; */
@@ -273,7 +310,7 @@ button {
   /* color: #2c3e50; */
   /* margin-top: 60px; */
   /* background-color: red; */
-  color: #5679A6;
+  /* color: #5679A6; */
   background: #f1f3f6;
   height: 700px;
 }

@@ -82,3 +82,23 @@
     </span>
 </g-dialog>
 ```
+
+## 五. Navigator
+
+### step
+```
+<g-steps :active="stepActive" style="margin-left: 20px">
+        <g-step></g-step>
+        <g-step></g-step>
+        <g-step>
+        <g-step>
+            <template slot="icon">
+                1
+            </template>
+            <template slot="title">
+                hahaerre
+            </template>  
+            
+        </g-step> 
+    </g-steps>
+```
