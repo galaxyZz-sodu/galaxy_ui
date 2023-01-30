@@ -15,6 +15,10 @@ export default {
             type: Boolean,
             default: true
         },
+        round: {
+            type: Boolean,
+            default: false
+        },
         size: {
             type: String,
             default: 'mid',
@@ -36,6 +40,7 @@ export default {
             return {
                 [`${this.type}`]: this.type,
                 [`${this.size}`]: this.size,
+                [`${this.size}Round`]: this.round,
             }
         }
     },
@@ -62,17 +67,26 @@ export default {
         background: linear-gradient(145deg, #d9dbdd, #ffffff);
     }
     .mid {
-        padding: 0 20px;
-        height: 40px;
-        width: auto;
+        padding: 10px 20px;
+        /* height: 40px; */
+        /* width: auto; */
+    }
+    .midRound {
+        border-radius: 20px;
     }
     .small {
         padding: 5px 11px;
         width: auto;
     }
+    .smallRound {
+        border-radius: 20px;
+    }
     .large {
-        padding: 15px 25px;
-        width: auto;
+        padding: 15px 30px;
+        /* width: auto; */
         /* min-width: 100px; */
+    }
+    .largeRound {
+        border-radius: 30px;
     }
 </style>

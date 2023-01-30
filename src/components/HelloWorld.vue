@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <div v-if="show" class="out">
+      <div v-if="true" class="out">
         <div class="title">{{ title }}</div>
 
         <div class="passw">

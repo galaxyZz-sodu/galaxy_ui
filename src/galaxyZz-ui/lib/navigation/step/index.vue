@@ -59,8 +59,8 @@ export default {
     this.currentIndex = this.$parent.$children.findIndex(
       (e) => e._uid === this._uid
     );
-    console.log(this.$slots);
-    console.log(this.$slots.hasOwnProperty("icon"));
+    // console.log(this.$slots);
+    // console.log(this.$slots.hasOwnProperty("icon"));
     this.isDefaultIcon = !this.$slots.hasOwnProperty("icon");
   },
 };

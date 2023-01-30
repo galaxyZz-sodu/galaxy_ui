@@ -5,6 +5,9 @@ export default async function waterMark(el, binding) {
             img.crossOrigin="";
             img.addEventListener('load', () => res(img))
             img.src = src;
+            // img.width = 200;
+            // img.height = 100;
+            // img.objectFit = 'cover'
         })
         
     };
@@ -43,8 +46,9 @@ export default async function waterMark(el, binding) {
 
             console.log(binding.value.textColor);
           let img = await srcToImg(binding.value.imgUrl)
+          console.log(img.width)
           let canvas = imgToCanvas(img)
-          let markCan = await mark(canvas, binding.value.text, binding.value.textColor)
+          let markCan = await mark(canvas, binding.value.text, binding.value.textColor);
           el.appendChild(markCan)
 }
 

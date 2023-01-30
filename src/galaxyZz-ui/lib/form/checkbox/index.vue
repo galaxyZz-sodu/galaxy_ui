@@ -4,7 +4,10 @@
            <div class="btn" :class="{btnSelect: isSelect(item)}" @click="selectChange(item)">
             <div class="back" :class="{isSelect: isSelect(item)}"></div>
            </div>
-           {{item}}
+           <div class="text">
+            {{item}}
+           </div>
+           
             
         </div>
     </div>
@@ -55,6 +58,7 @@ export default {
     .option {
         display: flex;
         margin-right: 15px;
+        line-height: 20px;
     }
     .btn {
         width: 20px;

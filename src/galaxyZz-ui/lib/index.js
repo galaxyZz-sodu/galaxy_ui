@@ -19,6 +19,8 @@ import table from './data/table'
 import tableColunm from './data/tableColunm'
 import magnifier from './others/magnifier'
 import waterMark from './others/waterMark'
+import carousel from './others/carousel'
+import carouselItem from './others/carouseltem'
 import step from './navigation/step'
 import steps from './navigation/steps'
 const galaxyUi = {
@@ -42,8 +44,10 @@ const galaxyUi = {
         Vue.component('g-pagination', pagination)
         Vue.component('g-rate', rate);
         Vue.component('g-table', table);
-        Vue.component('g-tableColunm', tableColunm);
+        Vue.component('g-table-column', tableColunm);
         Vue.component('g-magnifier', magnifier);
+        Vue.component('g-carousel', carousel)
+        Vue.component('g-carousel-item', carouselItem)
         Vue.component('g-steps', steps)
         Vue.component('g-step', step)
         // 自定义事件
