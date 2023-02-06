@@ -9,6 +9,9 @@
         <g-button type="hump">按钮</g-button>
         <vue-editor style="width: 400px" v-model="content" />
         <div>{{content}}</div>
+        <div class="thirdTitle">
+            template
+        </div>
         <div class="code">
             <div v-html="typeContent"></div>
         </div>

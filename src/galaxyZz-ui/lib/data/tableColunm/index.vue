@@ -40,7 +40,7 @@ export default {
         }
     },
     mounted() {
-        console.log(this.data);
+        // console.log(this.data);
         this.isLableSlot = this.$slots.hasOwnProperty('label')
     }
 }

@@ -7,12 +7,15 @@ import Vue2Editor from "vue2-editor";
 // import galaxyUi from 'galaxyzz-ui'
 import galaxyUi from './galaxyZz-ui'
 
+import Code from '@/view/code'
+
 import './assets/publicCss.css'
 Vue.config.productionTip = false;
 // Vue.use(xpay);
 // Vue.use(xsiderbar)
 Vue.use(galaxyUi);
 Vue.use(Vue2Editor);
+Vue.component('Code', Code);
 new Vue({
   router,
   render: h => h(App),

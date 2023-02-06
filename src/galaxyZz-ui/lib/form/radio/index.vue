@@ -10,8 +10,12 @@
 <script>
 export default {
   props: {
-    value: {},
-    label: {},
+    value: {
+      type: String
+    },
+    label: {
+      type: String
+    },
   },
   data() {
     return {

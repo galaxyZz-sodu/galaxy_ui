@@ -3,15 +3,32 @@
     font-size: 30px;
     padding: 30px 10px;
 }
+/* 补充标题 */
+.suppleTitle {
+    padding: 0px 5px 10px 10px;
+    font-size: 14px;
+}
 /* 副标题 */
 .secondTitle {
     font-size: 25px;
     padding: 30px 10px;
+}
+.thirdTitle {
+    padding: 20px 5px 10px 10px;
+    /* margin-top: 20px; */
+    font-size: 14px;
+    color: rgb(151, 151, 151);
 }
 /* 代码区 */
 .code {
     border: 1px solid #c0c4cc;
     border-radius: 5px;
     width: 700px;
-    padding: 20px;
+    padding: 10px 20px;
+    line-height: 20px;
+}
+
+/* 表格 */
+.table {
+    margin-top: 50px;
 }

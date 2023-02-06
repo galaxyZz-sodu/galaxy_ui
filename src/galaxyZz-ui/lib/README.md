@@ -100,5 +100,5 @@
             </template>  
             
         </g-step> 
-    </g-steps>
+</g-steps>
 ```

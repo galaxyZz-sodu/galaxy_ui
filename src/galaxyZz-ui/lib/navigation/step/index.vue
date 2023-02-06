@@ -17,7 +17,7 @@
       </div>
       <div
         :class="[
-          'title',
+          'title-step',
           { 'finish-color': isFinish, 'current-color': isCurrent },
         ]"
       >
@@ -97,7 +97,7 @@ export default {
 .line-finish {
   background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
 }
-.title {
+.title-step {
   margin: 5px 10px;
   font-size: 18px;
   color: #c0c4cc;
