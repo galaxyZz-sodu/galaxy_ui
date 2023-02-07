@@ -1,4 +1,4 @@
-# music
+# galaxy_ui
 
 ## Project setup
 ```
