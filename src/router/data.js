@@ -5,8 +5,8 @@ export default  [
         component: () => import('@/components/data/Badage.vue'),
     },
     {
-        path: '/paganation',
-        name: 'paganation',
+        path: '/pagination',
+        name: 'pagination',
         component: () => import('@/components/data/Pagination.vue'),
     },
     {

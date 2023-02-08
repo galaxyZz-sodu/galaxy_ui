@@ -60,7 +60,7 @@
                         Others
                     </div>
                     <div @click="goLi">
-                        <div class="li" v-for="(i, index) in others" :key="index">
+                        <div class="li" v-for="(i, index) in others" :key="index" v-bind:data-router="i.router">
                             {{i.name}}
                         </div>
                     </div>
@@ -82,7 +82,7 @@ export default {
             ],
             data: [
                 {name: 'Badage 标记', router: 'badage'},
-                {name: 'Panigation 分页', router: 'panigation'},
+                {name: 'Pagination 分页', router: 'pagination'},
                 {name: 'Progress 进度条', router: 'progress'},
                 {name: 'Table 表格', router: 'table'},
                 {name: 'Tag 标签', router: 'tag'},
@@ -113,7 +113,7 @@ export default {
     },
     methods: {
         goLi(e) {
-            // console.log(e.target.dataset.router);
+            console.log(e.target.dataset.router);
             this.$router.push({
                 path: `/${e.target.dataset.router}`
             })

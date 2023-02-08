@@ -4,7 +4,7 @@
             按钮
         </div>
         <div class="secondTitle">基础用法</div>
-        <g-button :round="true">按钮</g-button>
+        <g-button>按钮</g-button>
         <g-button type="sunk">按钮</g-button>
         <g-button type="hump">按钮</g-button>
         <vue-editor style="width: 400px" v-model="content" />
