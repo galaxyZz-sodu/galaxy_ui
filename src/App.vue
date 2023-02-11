@@ -1,50 +1,37 @@
 <template>
-<div class="back">
-  <div class="out">
-
-    <SiderBar2 class="siderBar"></SiderBar2>
-    <div class="content">
-      <router-view></router-view>
+  <div class="back">
+    <div class="out">
+      <SiderBar2 class="siderBar"></SiderBar2>
+      <div class="content" v-scrollTop>
+        <router-view></router-view>
+      </div>
     </div>
-    
   </div>
-</div>
-  
-
-  
-  
 </template>
 
 <script>
-import SiderBar2 from '@/components/SiderBar2.vue'
-import HelloWorld from './components/HelloWorld.vue'
+import SiderBar2 from "@/components/SiderBar2.vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
-  data(){
-    return {
-    }
-    
+  name: "App",
+  data() {
+    return {};
   },
   components: {
     HelloWorld,
-    SiderBar2
+    SiderBar2,
   },
-  methods: {
-    
-  },
-  created() {
-    
-  },
+  methods: {},
+  created() {},
   mounted() {
-    // setInterval(() => {
-    //   this.percent += 1
-    //   if (this.percent > 100) {
-    //     return
-    //   }
-    // }, 100)
-  }
-}
+    let con = document.querySelector(".content");
+    con.scrollTo(0, 0);
+    // this.$nextTick(() => {
+    //   console.log('hss');
+    // })
+  },
+};
 </script>
 
 <style scoped lang="less">
@@ -74,29 +61,25 @@ export default {
     overflow-x: hidden;
     // background-color: red;
     max-height: 700px;
-    
-    
-   
   }
 }
 /* 整个滚动条 */
 ::-webkit-scrollbar {
-    /* 对应纵向滚动条的宽度 */
-    width: 10px;
-    /* 对应横向滚动条的宽度 */
-    height: 10px;
+  /* 对应纵向滚动条的宽度 */
+  width: 10px;
+  /* 对应横向滚动条的宽度 */
+  height: 10px;
 }
 
 /* 滚动条上的滚动滑块 */
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(225, 225, 225);
-    border-radius: 32px;
+  background-color: rgb(225, 225, 225);
+  border-radius: 32px;
 }
 
 /* 滚动条轨道 */
 ::-webkit-scrollbar-track {
-    background-color: #ededed;
-    border-radius: 32px;
+  background-color: transparent;
+  border-radius: 32px;
 }
-
 </style>
