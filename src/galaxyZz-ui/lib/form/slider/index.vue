@@ -29,7 +29,8 @@ export default {
       btnLeft: -10,
       lineLeft: 0,
       isDown: false,
-      btnL: 0,
+      // btnL: 0,
+      btnDisX: '',
       lineWidth: 0,
       percent: this.value,
       percentShow: false,
@@ -47,16 +48,24 @@ export default {
   },
   mounted() {
     var line = document.querySelector(".slider");
-    this.lineLeft = line.offsetLeft;
+    this.lineLeft = line.getBoundingClientRect().left;
     this.lineWidth = line.offsetWidth;
+    this.btnLeft = this.percent / 100 * this.lineWidth - 10;
+    const that  = this;
+    window.onresize = () => {
+      return (() => {
+          that.lineLeft = line.getBoundingClientRect().left;
+      })()
+    }
   },
   methods: {
     getMousedown(e) {
       this.isDown = true;
+      this.btnDisX = e.offsetX
     },
     getMouseMove(e) {
       if (this.isDown) {
-        this.btnLeft = e.clientX - this.lineLeft - 10;
+        this.btnLeft = e.clientX - this.lineLeft - this.btnDisX;
         if (e.clientX - this.lineLeft < 0) {
           this.btnLeft = -10;
         }
@@ -72,12 +81,14 @@ export default {
     getMouseup(e) {
       this.isDown = false;
       this.$emit("input", this.percent);
+      this.$emit("mouseUp", this.percent);
     },
     getLineClick(e) {
       this.btnLeft = e.clientX - this.lineLeft - 10;
       this.percent = parseInt(
         String(((this.btnLeft + 10) / this.lineWidth) * 100).split(".")[0]
       );
+      console.log(this.percent );
       this.$emit("input", this.percent);
     },
     showPercent() {
@@ -92,7 +103,7 @@ export default {
 
 <style scoped>
 .out {
-  margin: 20px 40px;
+  margin: 10px 10px;
   align-items: center;
 }
 .slider {
