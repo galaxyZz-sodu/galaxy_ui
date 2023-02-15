@@ -4,6 +4,7 @@ import button from './basic/button'
 import input from './form/input'
 import dialog from './others/dialog'
 import Switch from './form/switch'
+import upload from './form/upload'
 import radio from './form/radio'
 import checkbox from './form/checkbox'
 import inputNumber from './form/inputNumber'
@@ -49,7 +50,8 @@ const galaxyUi = {
         Vue.component('g-carousel', carousel)
         Vue.component('g-carousel-item', carouselItem)
         Vue.component('g-steps', steps)
-        Vue.component('g-step', step)
+        Vue.component('g-step', step);
+        Vue.component('g-upload', upload)
         // 自定义事件
         Vue.directive('waterMark', waterMark);
     }
