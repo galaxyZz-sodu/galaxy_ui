@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="out">
-            <div class="guide">
+            <div class="guide" @click="goHome">
                 <div class="siderTitle">开发指南</div>
             </div>
             
@@ -13,7 +13,7 @@
                         Basic
                     </div>
                     <div @click="goLi">
-                        <div class="li" v-for="(i, index) in basic" :key="index" v-bind:data-router="i.router">
+                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in basic" :key="index" v-bind:data-router="i.router">
                             {{i.name}}
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                         Form
                     </div>
                     <div @click="goLi">
-                        <div class="li" v-for="(i, index) in form" :key="index" v-bind:data-router="i.router">
+                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in form" :key="index" v-bind:data-router="i.router">
                             {{i.name}}
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                         Data
                     </div>
                     <div @click="goLi">
-                        <div class="li" v-for="(i, index) in data" :key="index"  v-bind:data-router="i.router">
+                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in data" :key="index"  v-bind:data-router="i.router">
                             {{i.name}}
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                         Navigation
                     </div>
                     <div @click="goLi">
-                        <div class="li" v-for="(i, index) in navigation" :key="index" v-bind:data-router="i.router">
+                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in navigation" :key="index" v-bind:data-router="i.router">
                             {{i.name}}
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         Others
                     </div>
                     <div @click="goLi">
-                        <div class="li" v-for="(i, index) in others" :key="index" v-bind:data-router="i.router">
+                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in others" :key="index" v-bind:data-router="i.router">
                             {{i.name}}
                         </div>
                     </div>
@@ -80,6 +80,7 @@ export default {
                 {name: 'Button 按钮', router: 'button'}
                 
             ],
+            selectName: '',
             data: [
                 {name: 'Badage 标记', router: 'badage'},
                 {name: 'Pagination 分页', router: 'pagination'},
@@ -114,8 +115,14 @@ export default {
     methods: {
         goLi(e) {
             console.log(e.target.dataset.router);
+            this.selectName = e.target.dataset.router
             this.$router.push({
                 path: `/${e.target.dataset.router}`
+            })
+        },
+        goHome() {
+            this.$router.push({
+                path: '/'
             })
         }
     },
@@ -133,6 +140,9 @@ export default {
     /* 隐藏滚动条 */
    scrollbar-width: none; /* firefox */
    -ms-overflow-style: none; /* IE 10+ */
+   .guide {
+    cursor:pointer;
+   }
     .siderTitle {
         font-size: 20px;
         height: 40px;
@@ -147,7 +157,15 @@ export default {
                 color: #999999;
             }
             .li {
-                padding: 10px 0;
+                padding: 10px 5px;
+                transition: 0.3s all ease-out;
+                cursor:pointer;
+            }
+            .li:hover {
+                background-color: rgb(225, 225, 225);
+            }
+            .isSelect {
+                background-color: rgb(225, 225, 225);
             }
         }
     }
