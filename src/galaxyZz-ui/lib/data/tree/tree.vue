@@ -10,7 +10,6 @@
             <transition name="childTree">
                 <tree class="child" v-show="showObj[i.label] && i.children" :data="i.children" ></tree>
             </transition>
-            
         </div>
         
     </div>
@@ -44,7 +43,7 @@ export default {
         //     return this.showObj[label]
         // },
         changeShow(label) {
-            // console.log(this.showObj[label])
+            console.log(this.showObj[label])
             this.showObj[label] = !this.showObj[label];
             console.log(this.showObj)
         }
