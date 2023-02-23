@@ -27,7 +27,6 @@ export default {
 <style scoped>
     .input {
         background: #f1f3f6;
-        /* background: linear-gradient(145deg, #d9dbdd, #ffffff); */
         box-shadow:  3px 3px 3px #c6c7ca inset,
                 -3px -3px 3px #ffffff inset;
         border-radius: 40px;
