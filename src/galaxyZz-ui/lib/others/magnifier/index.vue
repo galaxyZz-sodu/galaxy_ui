@@ -1,7 +1,7 @@
 <template>
-    <div class="out">
+    <div class="out" @scroll="isScroll">
         <div>
-            <div class="min" @mousemove.stop="getMouseMove" @mouseover.stop="getMouseOver" @mouseleave.stop="getMouseLeave">
+            <div ref="min" class="min" @mousemove.stop="getMouseMove" @mouseover.stop="getMouseOver" @mouseleave.stop="getMouseLeave">
                 <img class="min-img" :style="{width: width + 'px'}" :src="imgUrl" alt="">
                 <div v-if="MaskShow" :style="{left: maskX + 'px', top: maskY + 'px', width: maskWidth + 'px', height: maskWidth + 'px'}" class="mask"></div>
             </div>
@@ -28,13 +28,16 @@ export default {
             outY: 0,
             mouseX: 0,
             mouseY: 0,
+            originTop: 0,
+            nowTop: 0,
             maskW: this.maskWidth,
             minHeight: 0,
             MaskShow: false,
             isCrossBorder: false,
             maxRightDistance: 0,
             bigRightSiderInstance: 0,
-            screenWidth: 0
+            screenWidth: 0,
+            scrollY: 0
         }
     },
     props: {
@@ -78,6 +81,9 @@ export default {
 
     },
     computed: {
+        // scrollY() {
+        //     return this.originTop - this.$refs.min.getBoundingClientRect().top;
+        // },
         maskX() {
             if (this.mouseX - this.outX <= this.maskWidth / 2) {
                 return 0;
@@ -88,13 +94,14 @@ export default {
             }
         },
         maskY() {
-            if (this.mouseY - this.outY < this.maskWidth / 2) {
+            if (this.mouseY - this.outY +this.scrollY  < this.maskWidth / 2) {
                 return 0;
-            } else if (this.mouseY - this.outY >= this.minHeight - this.maskWidth / 2) {
-                return this.minHeight - this.maskWidth;
+            } else if (this.mouseY - this.outY + this.scrollY >= this.minHeight - this.maskWidth / 2) {
+                return this.minHeight - this.maskWidth ;
             } else {
-                return this.mouseY - this.outY - this.maskWidth / 2;
+                return this.mouseY - this.outY + this.scrollY  - this.maskWidth / 2;
             }
+            
         },
         bigMoveX() {
             return this.maskX * -(this.width / this.maskWidth)
@@ -107,49 +114,94 @@ export default {
         getMouseMove(e) {
             this.mouseX = e.pageX;
             this.mouseY = e.pageY;
+            this.nowTop = e.pageY
+            this.scrollY = this.originTop - this.$refs.min.getBoundingClientRect().top
+            console.log('yyy',this.scrollY);
+            // console.log('666',this.$refs.min.getBoundingClientRect().top);
+            // console.log('x',this.mouseX)
+            // console.log(e.clientY );
+            // console.log(e.pageY);
+            // console.log('nowTop',this.nowTop)
+            // console.log('bd',document.body.scrollTop)
         },
         getMouseOver() {
             this.MaskShow = true;
         },
         getMouseLeave() {
             this.MaskShow = false;
+        },
+        getElementLeftAndTop(element){
+            console.log('scroll',element.scrollTop)
+            var left = element.offsetLeft;// 当前元素左边距
+            var top= element.offsetTop;// 当前元素上边距
+            var parent= element.offsetParent;// 当前元素的父级元素
+            console.log(parent)
+            while (parent!== null){
+                left += parent.offsetLeft;// 累加左边距
+                top+= parent.offsetTop;// 累加上边距
+                parent= parent.offsetParent;// 依次获取父元素
+                // console.log(parent)
+                
+            }
+            // console.log(left)
+                console.log('eleTop',top)
+            this.outX = left;
+            console.log('or', this.originTop);
+            console.log('now',element.getBoundingClientRect().top)
+            
+            this.outY = top;
+        },
+        isScroll() {
+            console.log('j')
         }
     },
     mounted() {
+        console.log('87', this.$refs.min.getBoundingClientRect().top);
         var outImg = document.querySelector('.out');
         var minImg = document.querySelector('.min');
         var bigImg = document.querySelector('.big');
-        
+        this.originTop = minImg.getBoundingClientRect().top;
+        // 获取原图片到文档左侧和顶部的距离
+        this.getElementLeftAndTop(minImg);
         // this.maxRightDistance = window.innerWidth - bigImg.getBoundingClientRect().right;
         this.bigRightSiderInstance = bigImg.getBoundingClientRect().right;
-        this.outX = outImg.offsetLeft;
-        this.outY = outImg.offsetTop;
+        // console.log('outX',this.outX);
+        // console.log('outy',this.outY);
         this.minHeight = minImg.offsetHeight;
         this.maxRightDistance = window.innerWidth - this.bigRightSiderInstance;
         const that = this
         window.onresize = () => {
             return (() => {
                 // window.screenWidth = document.body.clientWidth
-                that.screenWidth = window.innerWidth
+                that.screenWidth = window.innerWidth;
+                that.getElementLeftAndTop(minImg);
             })()
         }
+        // window.onscroll = () => {
+        //     return (() => {
+        //         console.log('gun');
+        //     })()
+            
+        // }
     }
 }
 </script>
 
 <style scoped>
     .out {
-        margin: 100px;
+        /* margin: 100px; */
         position: relative;
     }
     .big {
         position: absolute;
         top: 0;
         overflow: hidden;
+        z-index: 99;
     }
     .big-2 {
         position: absolute;
         overflow: hidden;
+        z-index: 99;
     }
     .big-img {
         margin: 0;
