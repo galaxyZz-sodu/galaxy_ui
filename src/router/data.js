@@ -24,4 +24,9 @@ export default  [
         name: 'tree',
         component: () => import('@/components/data/Tree.vue'),
     },
+    {
+        path: '/table',
+        name: 'table',
+        component: () => import('@/components/data/Table.vue'),
+    },
 ]
