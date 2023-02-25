@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="title">分页</div>
+    <div class="title">进度条</div>
     <div class="secondTitle">基础用法</div>
     <g-progress :percentage="percent" :strokeWidth="10"></g-progress>
     <g-button class="btn" @click="reduce">减少</g-button>
