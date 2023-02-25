@@ -2,7 +2,7 @@ export default async function waterMark(el, binding) {
     function srcToImg(src) {
         return new Promise((res, rej) => {
             let img = new Image();
-            img.crossOrigin="";
+            // img.crossOrigin="";
             img.addEventListener('load', () => res(img))
             img.src = src;
             // img.width = 200;
