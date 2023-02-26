@@ -102,6 +102,8 @@ export default {
             ],
             navigation: [
                 {name: 'Steps 步骤条', router: 'steps'},
+                {name: 'Breadcrumb 面包屑', router: 'breadcrumb'},
+                {name: 'PageHeader 页头', router: 'pageHeader'}
             ],
             others: [
                 {name: 'Carousel 走马灯', router: 'carousel'},
@@ -121,6 +123,7 @@ export default {
             })
         },
         goHome() {
+            this.selectName = ''
             this.$router.push({
                 path: '/'
             })

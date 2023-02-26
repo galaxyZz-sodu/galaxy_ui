@@ -24,6 +24,9 @@ import carousel from './others/carousel'
 import carouselItem from './others/carouseltem'
 import step from './navigation/step'
 import steps from './navigation/steps'
+import breadcrumb from './navigation/breadcrumb'
+import breadcrumbItem from './navigation/breadcrumbItem'
+import pageHeader from './navigation/pageHeader'
 const galaxyUi = {
     install(Vue, options) {
         // 组件
@@ -51,7 +54,10 @@ const galaxyUi = {
         Vue.component('g-carousel-item', carouselItem)
         Vue.component('g-steps', steps)
         Vue.component('g-step', step);
-        Vue.component('g-upload', upload)
+        Vue.component('g-upload', upload);
+        Vue.component('g-breadcrumb', breadcrumb);
+        Vue.component('g-breadcrumb-item', breadcrumbItem);
+        Vue.component('g-pageHeader', pageHeader);
         // 自定义事件
         Vue.directive('waterMark', waterMark);
     }
