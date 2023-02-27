@@ -67,7 +67,8 @@ export default {
         margin-right: 5px;
         background: #f1f3f6;
         border-radius: 2px;
-        transition: all 0.4s;
+        transition: all 0.4s ease-out;
+        transition: box-shadow 0.4s ease-out;
         box-shadow:  2px 2px 4px #c6c7ca,
                 -4px -4px 6px #ffffff;
     }
@@ -82,9 +83,10 @@ export default {
         top: 0;
         opacity: 0;
         border-radius: 2px;
-        box-shadow:  3px 3px 6px rgba(17, 20, 21, 0.3) inset;
+        box-shadow:  2px 3px 6px rgba(17, 20, 21, 0.2) inset;
         background: linear-gradient(145deg, #00f2fe, #4facfe);
-        transition: all 0.4s;
+        transition: all 0.4s ease-out;
+        transition: box-shadow opacity 0.4s ease-out;
     }
     .isSelect {
         opacity: 1;

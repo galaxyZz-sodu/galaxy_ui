@@ -1,5 +1,5 @@
 <template>
-    <button @click="handleClick" class="btn" :class="typeClass">
+    <button @click="handleClick" class="btn" :class="{...typeClass, 'down': isDown, 'enter': isEnter}" @mousedown="onMouseDown" @mouseup="onMouseUp" @mouseenter="onEnter" @mouseleave="onLeave">
         <slot></slot>
     </button>
 </template>
@@ -35,6 +35,12 @@ export default {
             }
         }
     },
+    data() {
+        return {
+            isDown: false,
+            isEnter: false
+        }
+    },
     computed: {
         typeClass() {
             return {
@@ -47,6 +53,18 @@ export default {
     methods: {
         handleClick(e) {
             this.$emit('click', e)
+        },
+        onMouseDown() {
+            this.isDown = true;
+        },
+        onMouseUp() {
+            this.isDown = false;
+        },
+        onEnter() {
+            this.isEnter = true;
+        },
+        onLeave() {
+            this.isEnter = false;
         }
     }
 }
@@ -59,6 +77,20 @@ export default {
         box-shadow:  4px 4px 8px #c6c7ca,
                 -6px -6px 12px #ffffff;
         border-radius: 5px;
+        transition: box-shadow 0.3s ease-out;
+        /* transition-duration: 1s; */
+    }
+    /* .btn:hover {
+        box-shadow:  2px 2px 4px #c6c7ca,
+                -3px -3px 6px #ffffff;
+    } */
+    .enter {
+        box-shadow:  2px 2px 4px #c6c7ca,
+                -3px -3px 6px #ffffff;
+    }
+    .down {
+        box-shadow:  2px 2px 4px transparent,
+                -3px -3px 6px transparent;
     }
     .hump {
         background: linear-gradient(145deg, #ffffff, #f1f3f6);
