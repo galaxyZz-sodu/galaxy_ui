@@ -29,4 +29,9 @@ export default  [
         name: 'table',
         component: () => import('@/components/data/Table.vue'),
     },
+    {
+        path: '/descriptions',
+        name: 'descriptions',
+        component: () => import('@/components/data/Descriptions.vue'),
+    },
 ]

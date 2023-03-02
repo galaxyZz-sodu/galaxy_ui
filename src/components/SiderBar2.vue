@@ -88,6 +88,7 @@ export default {
                 {name: 'Table 表格', router: 'table'},
                 {name: 'Tag 标签', router: 'tag'},
                 {name: 'Tree 树形控件', router: 'tree'},
+                {name: 'Descriptions 描述列表', router:'descriptions'}
             ],
             form: [
                 {name: 'Checkbox 多选框', router: 'checkbox'},

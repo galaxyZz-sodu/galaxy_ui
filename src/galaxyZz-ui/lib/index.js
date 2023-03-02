@@ -28,6 +28,8 @@ import breadcrumb from './navigation/breadcrumb'
 import breadcrumbItem from './navigation/breadcrumbItem'
 import pageHeader from './navigation/pageHeader'
 import popover from './others/popover'
+import descriptions from './data/descriptions'
+import descriptionsItem from './data/descriptionsItem'
 const galaxyUi = {
     install(Vue, options) {
         // 组件
@@ -59,7 +61,9 @@ const galaxyUi = {
         Vue.component('g-breadcrumb', breadcrumb);
         Vue.component('g-breadcrumb-item', breadcrumbItem);
         Vue.component('g-pageHeader', pageHeader);
-        Vue.component('g-popover', popover)
+        Vue.component('g-popover', popover);
+        Vue.component('g-descriptions', descriptions);
+        Vue.component('g-descriptions-item', descriptionsItem)
         // 自定义事件
         Vue.directive('waterMark', waterMark);
     }
