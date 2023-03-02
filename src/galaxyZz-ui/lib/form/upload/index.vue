@@ -49,19 +49,19 @@ export default {
   },
   methods: {
     showInfo() {
-      console.log(this.fileList);
+      // console.log(this.fileList);
     },
     deleteItem(name) {
-      console.log(name);
+      // console.log(name);
       this.fileList = this.fileList.filter((item) => {
         return item.name != name;
       });
       this.$emit("handleDelete", this.fileList);
-      console.log(this.fileList);
+      // console.log(this.fileList);
     },
     addItem() {
       var file = document.getElementById("originInput").files[0];
-      console.log(file);
+      // console.log(file);
       let that = this;
       if (window.FileReader) {
         var reader = new FileReader();
@@ -82,7 +82,7 @@ export default {
           that.fileList.push(fileInfo);
           //e.target.result就是最后的路径地址
           // document.getElementById("img1").setAttribute("src",e.target.result)
-          console.log("***" + e.target.result);
+          // console.log("***" + e.target.result);
           that.$emit("handleSucceed", that.fileList);
         };
       }
