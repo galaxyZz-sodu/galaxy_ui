@@ -1,5 +1,5 @@
 <template>
-  <div class="out">
+  <div class="out" :class="{'outSkip': to}">
     <div class="inner" :class="{'isSkip': to}" @click="skip">
       <slot></slot>
     </div>
@@ -59,9 +59,17 @@ export default {
     cursor:pointer;
     font-weight: 600;
     transition: 0.3s all ease-out;
+
 }
 
 .isSkip:hover {
     color: #4facfe;
+    
+}
+.outSkip {
+    transition: 0.3s all ease-out;
+}
+.outSkip:hover {
+    box-shadow: 1px 1px 3px #c6c7ca, -1px -1px 10px #ffffff;
 }
 </style>

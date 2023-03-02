@@ -1,6 +1,15 @@
 <template>
   <div class="out">
-    <div class="btn" :class="{ disabled: data <= min }" @click="minus">
+    <div
+      class="btn"
+      :class="{ disabled: data <= min, enter: isEnter && data > min,
+        down: isDown,}"
+      @click="minus"
+      @mousedown="onMouseDown"
+      @mouseup="onMouseUp"
+      @mouseenter="onEnter"
+      @mouseleave="onLeave"
+    >
       <div>-</div>
     </div>
     <div class="content">
@@ -8,9 +17,17 @@
     </div>
     <div
       class="btn"
-      :class="{ disabled: data >= max }"
+      :class="{
+        disabled: data >= max,
+        enter: isEnter2 && data < max,
+        down: isDown2,
+      }"
       @click="add"
       @blur="onBlur"
+      @mousedown="onMouseDownAdd"
+      @mouseup="onMouseUpAdd"
+      @mouseenter="onEnterAdd"
+      @mouseleave="onLeaveAdd"
     >
       <div>+</div>
     </div>
@@ -22,6 +39,10 @@ export default {
   data() {
     return {
       data: this.value,
+      isDown: false,
+      isEnter: false,
+      isDown2: false,
+      isEnter2: false,
     };
   },
   props: {
@@ -69,6 +90,30 @@ export default {
       this.$emit("input", number);
     },
     onBlur() {},
+    onMouseDown() {
+      this.isDown = true;
+    },
+    onMouseUp() {
+      this.isDown = false;
+    },
+    onEnter() {
+      this.isEnter = true;
+    },
+    onLeave() {
+      this.isEnter = false;
+    },
+    onMouseDownAdd() {
+      this.isDown2 = true;
+    },
+    onMouseUpAdd() {
+      this.isDown2 = false;
+    },
+    onEnterAdd() {
+      this.isEnter2 = true;
+    },
+    onLeaveAdd() {
+      this.isEnter2 = false;
+    },
   },
 };
 </script>
@@ -124,5 +169,11 @@ input[type="number"] {
   text-align: center;
   font-size: 20px;
   border: none;
+}
+.enter {
+  box-shadow: 1px 1px 2px #c6c7ca, -2px -2px 3px #ffffff;
+}
+.down {
+  box-shadow: 2px 2px 4px transparent, -3px -3px 6px transparent;
 }
 </style>

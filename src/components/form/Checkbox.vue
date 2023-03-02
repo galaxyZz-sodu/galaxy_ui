@@ -63,7 +63,6 @@ export default {
                     explain: '当选项发生改变时调用',
                     callBackPara: '-'
                 }
-                
             ]
         }
     },

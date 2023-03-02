@@ -63,6 +63,10 @@ export default {
         display: flex;
         justify-content: center;
         position: relative;
+        transition: 0.3s all ease-out;
+    }
+    .out:hover {
+        box-shadow: 1.5px 1.5px 2px #c6c7ca inset, -1.5px -1.5px 2px #ffffff inset;
     }
     input {
         width: 200px;
@@ -76,23 +80,31 @@ export default {
         position: absolute;
         top: 44px;
         background-color: #f1f3f6;
-        box-shadow:  4px 4px 8px #c6c7ca,
-                -6px -6px 12px #ffffff;
+        box-shadow:  2px 2px 8px #c6c7ca;
         border-radius: 5px;
         width: 240px;
         padding: 2px;
     }
     .li {
+        margin: 4px 2px;
         padding: 4px 20px;
         border-radius: 5px;
+        transition: 0.3s all ease-out;
     }
     .liSelect {
-        background: linear-gradient(145deg,#4facfe, #00f2fe);
-        color: #f1f3f6;
+        /* background-color: aqua; */
+        /* background: linear-gradient(145deg,#4facfe, #00f2fe); */
+        /* color: #f1f3f6; */
+        box-shadow:  2px 2px 3px #c6c7ca,
+                -2px -2px 3px #ffffff;
     }
     .li:hover {
-        background: linear-gradient(145deg,#4facfe, #00f2fe);
-        color: #f1f3f6;
+        /* background-color: aqua; */
+
+        /* background: linear-gradient(145deg,#4facfe, #00f2fe); */
+        /* color: #f1f3f6; */
+        box-shadow:  2px 2px 3px #c6c7ca,
+                -2px -2px 3px #ffffff;
     }
 
 </style>

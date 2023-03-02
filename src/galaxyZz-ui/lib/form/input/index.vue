@@ -34,6 +34,10 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-around;
+        transition: all 0.3s ease-out;
+    }
+    .input:hover {
+        box-shadow: 1.5px 1.5px 2px #c6c7ca inset, -1.5px -1.5px 2px #ffffff inset;
     }
     input {
         outline: none;
