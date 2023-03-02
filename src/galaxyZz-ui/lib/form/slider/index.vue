@@ -135,6 +135,7 @@ export default {
   position: absolute;
 }
 .btn {
+  transition: transform 0.1s ease-in-out;
   width: 20px;
   height: 20px;
   background-color: #4facfe;
@@ -142,5 +143,8 @@ export default {
   position: absolute;
   top: -7px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2), -4px -4px 8px #ffffff;
+}
+.btn:hover {
+  transform: scale(1.1);
 }
 </style>
