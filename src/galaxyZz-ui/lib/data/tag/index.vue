@@ -1,5 +1,5 @@
 <template>
-    <div class="out">
+    <div>
         <div class="in" :class="typeClass">
             <slot></slot>  
         </div>
