@@ -50,13 +50,22 @@ background-color: #f1f3f6;
     padding: 8px 15px;
     margin-right: 6px;
     transform: skewX(-30deg);
+    transition: 0.3s all ease-out;
 }
 .text {
     font-size: 14px;
     transform: skewX(30deg);
+    cursor:pointer;
+    transition: 0.3s all ease-out;
+}
+.text:hover {
+    color: #4facfe;
 }
 .content {
     margin-left: 20px;
     font-size: 18px;
+}
+.back:hover {
+    box-shadow: 1px 1px 3px #c6c7ca, -1px -1px 10px #ffffff;
 }
 </style>
