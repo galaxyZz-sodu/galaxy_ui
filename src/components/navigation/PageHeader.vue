@@ -5,6 +5,9 @@
     <g-pageHeader content="点击返回" @back="goBack"> </g-pageHeader>
     <Code :js="basicUsageJs" :html="basicUsageHTML"></Code>
     <!-- <div class="secondTitle">参数</div> -->
+    <div class="tabelTitle">
+        pageHeader参数
+    </div>
     <g-table :data="tableData" class="table">
             <g-table-column prop="parameter" label="参数" :width="100"></g-table-column>
             <g-table-column prop="explain" label="解释" :width="200"></g-table-column>
@@ -13,14 +16,20 @@
             <g-table-column prop="default" label="默认值" :width="100"></g-table-column>
         </g-table>
         <!-- <div class="secondTitle">事件</div> -->
+        <div class="tabelTitle">
+            pageHeader事件
+        </div>
         <g-table :data="event" class="table">
             <g-table-column prop="eventName" label="事件名称" :width="100"></g-table-column>
             <g-table-column prop="explain" label="解释" :width="300"></g-table-column>
             <g-table-column prop="callBackPara" label="回调参数" :width="200"></g-table-column>
         </g-table>
         <!-- <div class="secondTitle">插槽</div> -->
+        <div class="tabelTitle">
+            pageHeader插槽
+        </div>
         <g-table :data="slot" class="table">
-            <g-table-column prop="eventName" label="事件名称" :width="300"></g-table-column>
+            <g-table-column prop="eventName" label="插槽名称" :width="300"></g-table-column>
             <g-table-column prop="explain" label="解释" :width="300"></g-table-column>
         </g-table>
   </div>

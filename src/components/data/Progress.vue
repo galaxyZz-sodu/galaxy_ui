@@ -6,7 +6,9 @@
     <g-button class="btn" @click="reduce">减少</g-button>
     <g-button class="btn" @click="increase">增加</g-button>
     <Code :js="basicUsageJs" :html="basicUsageHTML"></Code>
-
+    <div class="tabelTitle">
+        progress参数
+    </div>
     <g-table :data="tableData" class="table">
         <g-table-column prop="parameter" label="参数" :width="100"></g-table-column>
         <g-table-column prop="explain" label="解释" :width="200"></g-table-column>

@@ -30,5 +30,10 @@
 
 /* 表格 */
 .table {
-    margin-top: 50px;
+    margin-top: 10px;
+}
+
+.tabelTitle {
+    font-size: 22px;
+    margin: 40px 0px 20px 10px;
 }

@@ -9,6 +9,9 @@
       @change="pagiChange"
     ></g-pagination>
     <Code :js="basicUsageJs" :html="basicUsageHTML"></Code>
+    <div class="tabelTitle">
+        pagination事件
+    </div>
     <g-table :data="tableData" class="table">
       <g-table-column
         prop="parameter"
@@ -32,7 +35,9 @@
         :width="100"
       ></g-table-column>
     </g-table>
-
+    <div class="tabelTitle">
+        pagination事件
+    </div>
     <g-table :data="event" class="table">
       <g-table-column
         prop="eventName"

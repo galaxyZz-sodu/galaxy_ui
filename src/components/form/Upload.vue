@@ -8,6 +8,9 @@
         </div>
         <g-upload :showPicture="true" @handleSucceed="getSucceed" :limit="3" @handleDelete="getDelete" @exceed="getExceed"></g-upload>
         <Code :js="basicUsageJs" :html="basicUsageHTML"></Code>
+        <div class="tabelTitle">
+            upload参数
+        </div>
         <g-table :data="tableData" class="table">
             <g-table-column prop="parameter" label="参数" :width="100"></g-table-column>
             <g-table-column prop="explain" label="解释" :width="200"></g-table-column>
@@ -15,7 +18,9 @@
             <g-table-column prop="select" label="可选值" :width="100"></g-table-column>
             <g-table-column prop="default" label="默认值" :width="100"></g-table-column>
         </g-table>
-
+        <div class="tabelTitle">
+            upload事件
+        </div>
         <g-table :data="event" class="table">
             <g-table-column prop="eventName" label="事件名" :width="150"></g-table-column>
             <g-table-column prop="explain" label="解释" :width="250"></g-table-column>
