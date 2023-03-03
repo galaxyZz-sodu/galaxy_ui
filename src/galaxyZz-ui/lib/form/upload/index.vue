@@ -146,6 +146,7 @@ img {
   }
   .delete {
     padding: 10px;
+    cursor:pointer;
   }
   .show:hover {
     box-shadow: 2px 2px 2px #c6c7ca inset, -2px -2px 2px #ffffff inset;
