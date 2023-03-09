@@ -7,8 +7,6 @@
            <div class="text">
             {{item}}
            </div>
-           
-            
         </div>
     </div>
 </template>

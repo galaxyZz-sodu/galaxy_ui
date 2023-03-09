@@ -22,6 +22,16 @@
         <div class="code">
             <div v-html="sizeContent"></div>
         </div>
+        <div class="tabelTitle">
+            button参数
+        </div>
+        <g-table :data="tableData" class="table">
+            <g-table-column prop="parameter" label="参数" :width="100"></g-table-column>
+            <g-table-column prop="explain" label="解释" :width="150"></g-table-column>
+            <g-table-column prop="type" label="数据类型" :width="100"></g-table-column>
+            <g-table-column prop="select" label="可选值" :width="150"></g-table-column>
+            <g-table-column prop="default" label="默认值" :width="100"></g-table-column>
+        </g-table>
     </div>
     
 </template>
@@ -34,7 +44,30 @@ export default {
         return {
             content: '',
             typeContent: '<p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> &gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">type</span>=<span style="color: rgb(152, 195, 121);">"sunk"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">type</span>=<span style="color: rgb(152, 195, 121);">"hump"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p>',
-            sizeContent: '<p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"small"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"mid"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"large"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p>'
+            sizeContent: '<p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"small"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"mid"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"large"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p>',
+            tableData: [
+                {
+                    parameter: 'type',
+                    explain: '按钮样式类型',
+                    type: 'String',
+                    select: 'sunk/hump',
+                    default: '-'
+                },
+                {
+                    parameter: 'size',
+                    explain: '按钮尺寸',
+                    type: 'String',
+                    select: 'small/mid/large',
+                    default: 'mid'
+                },
+                {
+                    parameter: 'round',
+                    explain: '是否添加圆角',
+                    type: 'Boolean',
+                    select: 'true/false',
+                    default: 'false'
+                }
+            ],
         }
     }
 }
