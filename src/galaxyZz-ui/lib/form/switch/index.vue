@@ -3,7 +3,7 @@
         <div class="inactive" v-if="inactiveText">{{inactiveText}}</div>
         <div class="out"  v-on:click="onClick"> 
             <div class="back" :class="{open: value}"></div>
-            <div class="circle" :class="[value ? 'circleOpen' : 'circleClose']"></div>
+            <div class="circle" :class="[value ? 'circleOpen' : 'circleClose', disabled ? 'disabled' : '']"></div>
         </div>
         <div class="active" v-if="activeText">{{activeText}}</div>
     </div>
@@ -25,10 +25,15 @@ export default {
         },
         inactiveText: {
             type: String
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
         onClick() {
+            if (this.disabled) return;
             this.value_1 = !this.value_1
             this.$emit('input', this.value_1);
             this.$emit('change')
@@ -94,6 +99,10 @@ export default {
     .circleOpen {
         box-shadow: 2px 2px 12px #c6c7ca;
         left: 22px;
+    }
+    .disabled {
+        box-shadow: none;
+        background: transparent;
     }
 </style>
 
