@@ -2,7 +2,8 @@
   <div class="out">
     <!-- <g-button @click="showInfo">展示</g-button> -->
     <label class="modifyInput" for="originInput">
-      <label class="add">+</label>
+      <label v-if="!hasContent" class="add">+</label>
+      <slot v-else name="content"></slot>
     </label>
     <input
       type="file"
@@ -10,6 +11,7 @@
       accept="image/png,image/jpeg,image/gif"
       id="originInput"
       name="fileInput"
+      multiple=""
     />
     <div
       class="show"
@@ -36,7 +38,12 @@ export default {
   data() {
     return {
       fileList: [],
+      hasContent: false,
     };
+  },
+  mounted() {
+    this.hasContent = this.$slots.content ? true : false;
+    // console.log(this.$slots.content);
   },
   props: {
     limit: {
@@ -59,32 +66,37 @@ export default {
       this.$emit("handleDelete", this.fileList);
       // console.log(this.fileList);
     },
+    loadFiles(file, that) {
+      var reader = new FileReader();
+      // 开始读取
+      reader.readAsDataURL(file);
+      //监听文件读取结束后事件
+      reader.onload = function (e) {
+        let fileInfo = {};
+        fileInfo.name = file.name;
+        fileInfo.url = e.target.result;
+        fileInfo.data = file;
+        if (that.limit) {
+          if (that.fileList.length >= that.limit) {
+            that.$emit("exceed");
+            return;
+          }
+        }
+        that.fileList.push(fileInfo);
+        //e.target.result就是最后的路径地址
+        // document.getElementById("img1").setAttribute("src",e.target.result)
+        // console.log("***" + e.target.result);
+      };
+    },
     addItem() {
-      var file = document.getElementById("originInput").files[0];
-      // console.log(file);
+      var files = document.getElementById("originInput").files;
+      console.log(files);
       let that = this;
       if (window.FileReader) {
-        var reader = new FileReader();
-        // 开始读取
-        reader.readAsDataURL(file);
-        //监听文件读取结束后事件
-        reader.onload = function (e) {
-          let fileInfo = {};
-          fileInfo.name = file.name;
-          fileInfo.url = e.target.result;
-          fileInfo.data = file;
-          if (that.limit) {
-            if (that.fileList.length >= that.limit) {
-              that.$emit("exceed");
-              return;
-            }
-          }
-          that.fileList.push(fileInfo);
-          //e.target.result就是最后的路径地址
-          // document.getElementById("img1").setAttribute("src",e.target.result)
-          // console.log("***" + e.target.result);
-          that.$emit("handleSucceed", that.fileList);
-        };
+        for (let file of files) {
+          this.loadFiles(file, that);
+        }
+        that.$emit("handleSucceed", that.fileList);
       }
     },
   },
@@ -100,58 +112,58 @@ export default {
   position: relative;
 }
 #originInput {
-    position: absolute;
-    left: 0;
-    top: 0;
-    clip: rect(0 0 0 0);
-  }
+  position: absolute;
+  left: 0;
+  top: 0;
+  clip: rect(0 0 0 0);
+}
 img {
-    object-fit: cover;
-  }
-  .modifyInput {
-    display: block;
-    width: 250px;
-    height: 140px;
-    border-radius: 5px;
-    background: #f1f3f6;
-    box-shadow: 4px 4px 4px #c6c7ca inset, -3px -3px 3px #ffffff inset;
-    line-height: 110px;
-    text-align: center;
-    font-size: 80px;
-    color: rgb(151, 151, 151);
-    transition: box-shadow 0.3s ease-out;
-  }
-  .modifyInput:hover {
-    box-shadow: 2px 2px 2px #c6c7ca inset, -2px -2px 2px #ffffff inset;
-  }
-  .add {
-    transition: 0.3s all ease-out;
-  }
-  .modifyInput:hover .add {
-    color: #4facfe;
-  }
-  .show {
-    margin: 4px 0px;
-    padding: 5px 6px;
-    width: 320px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease-out;
-    box-shadow: 4px 4px 4px #c6c7ca inset, -3px -3px 3px #ffffff inset;
-  }
-  .text {
-    transition: all 0.3s ease-out;
-    color: rgb(151, 151, 151);
-  }
-  .delete {
-    padding: 10px;
-    cursor:pointer;
-  }
-  .show:hover {
-    box-shadow: 2px 2px 2px #c6c7ca inset, -2px -2px 2px #ffffff inset;
-  }
-  .show:hover .text {
-    color: #4facfe;
-  }
+  object-fit: cover;
+}
+.modifyInput {
+  display: block;
+  width: 250px;
+  height: 140px;
+  border-radius: 5px;
+  background: #f1f3f6;
+  box-shadow: 4px 4px 4px #c6c7ca inset, -3px -3px 3px #ffffff inset;
+  line-height: 110px;
+  text-align: center;
+  font-size: 80px;
+  color: rgb(151, 151, 151);
+  transition: box-shadow 0.3s ease-out;
+}
+.modifyInput:hover {
+  box-shadow: 2px 2px 2px #c6c7ca inset, -2px -2px 2px #ffffff inset;
+}
+.add {
+  transition: 0.3s all ease-out;
+}
+.modifyInput:hover .add {
+  color: #4facfe;
+}
+.show {
+  margin: 4px 0px;
+  padding: 5px 6px;
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-out;
+  box-shadow: 4px 4px 4px #c6c7ca inset, -3px -3px 3px #ffffff inset;
+}
+.text {
+  transition: all 0.3s ease-out;
+  color: rgb(151, 151, 151);
+}
+.delete {
+  padding: 10px;
+  cursor: pointer;
+}
+.show:hover {
+  box-shadow: 2px 2px 2px #c6c7ca inset, -2px -2px 2px #ffffff inset;
+}
+.show:hover .text {
+  color: #4facfe;
+}
 </style>

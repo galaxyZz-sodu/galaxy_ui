@@ -26,6 +26,13 @@
             <g-table-column prop="explain" label="解释" :width="250"></g-table-column>
             <g-table-column prop="callBackPara" label="回调参数" :width="200"></g-table-column>
         </g-table>
+        <div class="tabelTitle">
+            step插槽
+        </div>
+        <g-table :data="slotData" class="table">
+            <g-table-column prop="parameter" label="参数" :width="200"></g-table-column>
+            <g-table-column prop="explain" label="解释" :width="300"></g-table-column>
+        </g-table>
     </div>
 </template>
 
@@ -68,7 +75,13 @@ export default {
                     explain: '超出数量限制时触发',
                     callBackPara: '-'
                 },
-            ]
+            ],
+            slotData: [
+                {
+                    parameter: 'content',
+                    explain: '选择框内容'
+                },
+            ],
         }
     },
     methods: {
@@ -86,5 +99,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
