@@ -1,5 +1,5 @@
 <template>
-    <button @click="handleClick" class="btn" :class="{...typeClass, 'down': isDown, 'enter': isEnter}" @mousedown="onMouseDown" @mouseup="onMouseUp" @mouseenter="onEnter" @mouseleave="onLeave">
+    <button @click="handleClick" class="btn" :class="{...typeClass, 'down': isDown, 'enter': isEnter, 'disabled': disabled}" @mousedown="onMouseDown" @mouseup="onMouseUp" @mouseenter="onEnter" @mouseleave="onLeave">
         <slot></slot>
     </button>
 </template>
@@ -33,6 +33,18 @@ export default {
             validator: (value) => {
                 return ['', 'sunk', 'hump'].includes(value)
             }
+        },
+        color: {
+            type: String,
+            require: false,
+            default: '',
+            validator: (value) => {
+                return ['', 'green', 'yellow', 'red'].includes(value)
+            }
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -46,12 +58,14 @@ export default {
             return {
                 [`${this.type}`]: this.type,
                 [`${this.size}`]: this.size,
+                [`${this.color}`]: this.color,
                 [`${this.size}Round`]: this.round,
             }
         }
     },
     methods: {
         handleClick(e) {
+            if (this.disabled) return;
             this.$emit('click', e)
         },
         onMouseDown() {
@@ -120,5 +134,22 @@ export default {
     }
     .largeRound {
         border-radius: 30px;
+    }
+    .green {
+        background-color: #f0f9eb;
+        color: #67c23a;
+    }
+    .yellow {
+        background-color: #fdf6ec;
+        color: #e6a23c;
+    }
+    .red {
+        background-color: #fef0f0;
+        color: #f56c6c;
+    }
+    .disabled {
+        box-shadow:  2px 2px 4px inset #c6c7ca,
+                -3px -3px 6px inset #ffffff;
+        /* background-color: red; */
     }
 </style>

@@ -4,9 +4,13 @@
             按钮
         </div>
         <div class="secondTitle">基础用法</div>
+        <div class="suppleTitle">注意：type和color不要同时使用，会造成样式覆盖</div>
         <g-button>按钮</g-button>
         <g-button type="sunk">按钮</g-button>
         <g-button type="hump">按钮</g-button>
+        <g-button color="green">按钮</g-button>
+        <g-button color="yellow">按钮</g-button>
+        <g-button color="red">按钮</g-button>
         <vue-editor style="width: 400px" v-model="content" />
         <div>{{content}}</div>
         <div class="thirdTitle">
@@ -22,6 +26,9 @@
         <div class="code">
             <div v-html="sizeContent"></div>
         </div>
+        <div class="secondTitle">禁用按钮</div>
+        <g-button :disabled="true">按钮</g-button>
+        <Code :jsShow="false" :html="disabledHTML"></Code>
         <div class="tabelTitle">
             button参数
         </div>
@@ -43,8 +50,9 @@ export default {
     data() {
         return {
             content: '',
-            typeContent: '<p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> &gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">type</span>=<span style="color: rgb(152, 195, 121);">"sunk"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">type</span>=<span style="color: rgb(152, 195, 121);">"hump"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p>',
+            typeContent: `<p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">type</span>=<span style="color: rgb(152, 195, 121);">"sunk"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">type</span>=<span style="color: rgb(152, 195, 121);">"hump"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">color</span>=<span style="color: rgb(152, 195, 121);">"green"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">color</span>=<span style="color: rgb(152, 195, 121);">"yellow"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">color</span>=<span style="color: rgb(152, 195, 121);">"red"</span>&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p>`,
             sizeContent: '<p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"small"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"mid"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p><p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> <span style="color: rgb(209, 154, 102);">size</span>=<span style="color: rgb(152, 195, 121);">"large"</span> :<span style="color: rgb(209, 154, 102);">round</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p>',
+            disabledHTML: `<p>&lt;<span style="color: rgb(224, 108, 117);">g-button</span> :<span style="color: rgb(209, 154, 102);">disabled</span>="<span style="color: rgb(209, 154, 102);">true</span>"&gt;按钮&lt;/<span style="color: rgb(224, 108, 117);">g-button</span>&gt;</p>`,
             tableData: [
                 {
                     parameter: 'type',
@@ -66,7 +74,21 @@ export default {
                     type: 'Boolean',
                     select: 'true/false',
                     default: 'false'
-                }
+                },
+                {
+                    parameter: 'color',
+                    explain: '按钮类型',
+                    type: 'String',
+                    select: 'green/yellow/red',
+                    default: '-'
+                },
+                {
+                    parameter: 'disabled',
+                    explain: '是否禁用',
+                    type: 'Boolean',
+                    select: 'true/false',
+                    default: 'false'
+                },
             ],
         }
     }
