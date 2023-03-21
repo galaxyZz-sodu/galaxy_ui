@@ -45,10 +45,12 @@ export default {
   height: 100vh;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
   // background: red;
   // background-color: #f1f3f6;
   .siderBar {
     // overflow: auto;
+    height: 100vh;
     position: absolute;
     left: 0;
   }
@@ -56,11 +58,11 @@ export default {
     position: absolute;
     left: 280px;
     padding: 20px 10px;
-
+    box-sizing: border-box;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: auto;
     // background-color: red;
-    max-height: 700px;
+    max-height: 100vh;
   }
 }
 /* 整个滚动条 */

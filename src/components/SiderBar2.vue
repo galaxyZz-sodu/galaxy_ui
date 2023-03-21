@@ -9,62 +9,68 @@
                 <div class="siderTitle">组件</div>
 
                 <div class="ul">
-                    <div class="liTitle">
+                    <div class="liTitle" :class="{'liTitleSelect': basicShow}" @click="liShow('basic')">
                         Basic
                     </div>
-                    <div @click="goLi">
-                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in basic" :key="index" v-bind:data-router="i.router">
-                            {{i.name}}
+                    <transition name="li">
+                        <div @click="goLi" v-if="basicShow">
+                            <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in basic" :key="index" v-bind:data-router="i.router">
+                                {{i.name}}
+                            </div>
                         </div>
-                    </div>
-                    
+                    </transition>
                 </div>
 
                 <div class="ul">
-                    <div class="liTitle">
+                    <div class="liTitle" :class="{'liTitleSelect': formShow}" @click="liShow('form')">
                         Form
                     </div>
-                    <div @click="goLi">
-                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in form" :key="index" v-bind:data-router="i.router">
-                            {{i.name}}
+                    <transition name="li">
+                        <div @click="goLi" v-if="formShow">
+                            <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in form" :key="index" v-bind:data-router="i.router">
+                                {{i.name}}
+                            </div>
                         </div>
-                    </div>
+                    </transition>
                 </div>
 
                 <div class="ul">
-                    <div class="liTitle">
+                    <div class="liTitle" :class="{'liTitleSelect': dataShow}" @click="liShow('data')">
                         Data
                     </div>
-                    <div @click="goLi">
-                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in data" :key="index"  v-bind:data-router="i.router">
-                            {{i.name}}
+                    <transition name="li">
+                        <div @click="goLi" v-if="dataShow">
+                            <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in data" :key="index"  v-bind:data-router="i.router">
+                                {{i.name}}
+                            </div>
                         </div>
-                    </div>
-                    
+                    </transition>
                 </div>
 
                 <div class="ul">
-                    <div class="liTitle">
+                    <div class="liTitle" :class="{'liTitleSelect': navigationShow}" @click="liShow('navigation')">
                         Navigation
                     </div>
-                    <div @click="goLi">
-                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in navigation" :key="index" v-bind:data-router="i.router">
-                            {{i.name}}
+                    <transition name="li">
+                        <div @click="goLi" v-if="navigationShow">
+                            <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in navigation" :key="index" v-bind:data-router="i.router">
+                                {{i.name}}
+                            </div>
                         </div>
-                    </div>
-                    
+                    </transition>
                 </div>
 
                 <div class="ul">
-                    <div class="liTitle">
+                    <div class="liTitle" :class="{'liTitleSelect': othersShow}" @click="liShow('others')">
                         Others
                     </div>
-                    <div @click="goLi">
-                        <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in others" :key="index" v-bind:data-router="i.router">
-                            {{i.name}}
+                    <transition name="li">
+                        <div @click="goLi" v-if="othersShow">
+                            <div class="li" :class="{isSelect: selectName == i.router}" v-for="(i, index) in others" :key="index" v-bind:data-router="i.router">
+                                {{i.name}}
+                            </div>
                         </div>
-                    </div>
-                    
+                    </transition>
                 </div>
             </div>
         </div>
@@ -78,7 +84,6 @@ export default {
         return {
             basic: [
                 {name: 'Button 按钮', router: 'button'}
-                
             ],
             selectName: '',
             data: [
@@ -112,7 +117,12 @@ export default {
                 {name: 'Magnifier 放大镜', router: 'magnifier'},
                 {name: 'Popover 弹出框', router: 'popover'},
                 {name: 'WaterMark 水印', router: 'waterMark'},
-            ]
+            ],
+            basicShow: false,
+            dataShow: false,
+            navigationShow: false,
+            formShow: false,
+            othersShow: false
         }
     },
     methods: {
@@ -128,6 +138,25 @@ export default {
             this.$router.push({
                 path: '/'
             })
+        },
+        liShow(title) {
+            switch (title) {
+                case 'basic':
+                    this.basicShow = !this.basicShow;
+                    break;
+                case 'data':
+                    this.dataShow = !this.dataShow;
+                    break;
+                case 'navigation':
+                    this.navigationShow = !this.navigationShow;
+                    break;
+                case 'form':
+                    this.formShow = !this.formShow;
+                    break;
+                case 'others':
+                    this.othersShow = !this.othersShow
+            }
+            
         }
     },
 }
@@ -137,9 +166,10 @@ export default {
 .out {
     overflow-y: scroll;
     // background-color: red;
+    box-sizing: border-box;
     width: 240px;
-    height: 100%;
-    max-height: 700px;
+    // height: 100vh;
+    max-height: 100vh;
     padding: 10px 20px;
     /* 隐藏滚动条 */
    scrollbar-width: none; /* firefox */
@@ -156,9 +186,18 @@ export default {
     .component {
         .ul {
             margin-top: 30px;
+            
             .liTitle {
                 font-size: 12px;
                 color: #999999;
+                transition: 0.3s all ease-out;
+                cursor:pointer;
+            }
+            .liTitle:hover {
+                color: black!important;
+            }
+            .liTitleSelect {
+                color: black;
             }
             .li {
                 padding: 10px 5px;
@@ -177,4 +216,22 @@ export default {
 .out::-webkit-scrollbar {
     display: none; /* Chrome Safari */
 }
+ .li-enter-active, .li-leave-active {
+        transition: all 0.2s ease-in-out;
+    }
+    .li-enter{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    // .li-enter-to{
+        
+    // }
+    // .li-leave{
+        
+    // }
+    .li-leave-to{
+        transform: translateX(110%);
+       opacity: 0;
+    }
+    
 </style>
