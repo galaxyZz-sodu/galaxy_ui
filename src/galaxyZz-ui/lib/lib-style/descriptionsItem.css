@@ -1,0 +1,20 @@
+
+.out[data-v-742e7842] {
+    /* flex: 1; */
+    box-sizing: border-box;
+    /* width: 33.3%; */
+    display: flex;
+    padding: 10px 0px;
+    align-items: center;
+    /* justify-content: center; */
+}
+.isVertical[data-v-742e7842] {
+    display: block;
+}
+.isVerticalSlot[data-v-742e7842] {
+    margin-top: 4px;
+}
+.label[data-v-742e7842] {
+    margin-right: 6px;
+}
+

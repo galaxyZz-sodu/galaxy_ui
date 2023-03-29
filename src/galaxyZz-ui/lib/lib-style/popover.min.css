@@ -1,0 +1,36 @@
+
+.out[data-v-0c74aa5c] {
+  position: relative;
+  z-index: 1;
+  /* height: 100%;
+  width: 100%; */
+  width: auto;
+}
+.popFade-enter-active[data-v-0c74aa5c],
+.popFade-leave-active[data-v-0c74aa5c] {
+  transition: opacity 0.1s ease-in-out;
+}
+.popFade-enter[data-v-0c74aa5c],
+.popFade-leave-to[data-v-0c74aa5c] {
+  opacity: 0;
+}
+.popTitle[data-v-0c74aa5c] {
+  font-size: 16px;
+  padding: 0px 0px 15px 0px;
+}
+.text[data-v-0c74aa5c] {
+  font-size: 14px;
+}
+.content[data-v-0c74aa5c] {
+  opacity: 0;
+  position: absolute;
+  background-color: #f1f3f6;
+  padding: 18px 20px;
+  z-index: 999;
+  box-shadow: 2px 2px 8px #c6c7ca;
+  border-radius: 5px;
+}
+.showPop[data-v-0c74aa5c] {
+  opacity: 1;
+}
+

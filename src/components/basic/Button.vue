@@ -11,8 +11,8 @@
         <g-button color="green">按钮</g-button>
         <g-button color="yellow">按钮</g-button>
         <g-button color="red">按钮</g-button>
-        <vue-editor style="width: 400px" v-model="content" />
-        <div>{{content}}</div>
+        <!-- <vue-editor style="width: 400px" v-model="content" />
+        <div>{{content}}</div> -->
         <div class="thirdTitle">
             template
         </div>

@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3834183 */
+  src: url(../649156fc25a4501cdccf.woff2?t=1671598087362) format('woff2'),
+       url(../5f995ed1c684cce5183a.woff?t=1671598087362) format('woff'),
+       url(../4288d89e8a6adaabd053.ttf?t=1671598087362) format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-duigou:before {
+  content: "\ebe6";
+}
+
+.icon-youjiantou:before {
+  content: "\e600";
+}
+
+.icon-zuojiantou:before {
+  content: "\e601";
+}
+
+
+
+.out[data-v-c06d85c2] {
+  width: 350px;
+  background-color: #f1f3f6;
+  box-shadow: 2px 2px 6px #c6c7ca, -4px -6px 12px #ffffff;
+  border-radius: 5px;
+  position: relative;
+
+  overflow: hidden;
+}
+.content[data-v-c06d85c2] {
+  width: 1750px;
+  position: absolute;
+  transition: left 0.2s ease;
+  /* left: -200px; */
+  /* float: left; */
+}
+span[data-v-c06d85c2] {
+  font-size: 16px;
+  color: white;
+}
+.leftArrow[data-v-c06d85c2] {
+  position: absolute;
+  top: 45%;
+  left: 4%;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  text-align: center;
+  line-height: 30px;
+  z-index: 9;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.rightArrow[data-v-c06d85c2] {
+  position: absolute;
+  top: 45%;
+  right: 4%;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  text-align: center;
+  line-height: 30px;
+  z-index: 9;
+  /* display: none; */
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.out:hover .rightArrow[data-v-c06d85c2] {
+  opacity: 1;
+}
+.out:hover .leftArrow[data-v-c06d85c2] {
+  opacity: 1;
+}
+
+

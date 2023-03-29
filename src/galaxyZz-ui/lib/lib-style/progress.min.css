@@ -1,0 +1,22 @@
+
+.out[data-v-288d6805] {
+  display: flex;
+  align-items: center;
+}
+.text[data-v-288d6805] {
+  margin-left: 5px;
+}
+.progress[data-v-288d6805] {
+  width: 300px;
+  height: 6px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px #c6c7ca, -4px -4px 8px #ffffff;
+}
+.back[data-v-288d6805] {
+  width: 0;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(145deg, #00f2fe, #4facfe);
+  transition: all 0.2s ease;
+}
+

@@ -1,0 +1,26 @@
+
+.input[data-v-6f6189a2] {
+    background: #f1f3f6;
+    box-shadow:  3px 3px 3px #c6c7ca inset,
+            -3px -3px 3px #ffffff inset;
+    border-radius: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 0.3s ease-out;
+}
+.input[data-v-6f6189a2]:hover {
+    box-shadow: 1.5px 1.5px 2px #c6c7ca inset, -1.5px -1.5px 2px #ffffff inset;
+}
+input[data-v-6f6189a2] {
+    outline: none;
+    border: none;
+    font-size: 14px;
+    padding: 10px 15px;
+    width: 90%;
+    /* word-spacing: 10px; */
+    /* padding: 6px; */
+    background-color: transparent;
+}
+

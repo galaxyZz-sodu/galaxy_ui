@@ -1,0 +1,59 @@
+
+/* 去除number input默认样式 */
+input[data-v-9ef0beea]::-webkit-outer-spin-button,
+input[data-v-9ef0beea]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+/* 在Firefox浏览器下 */
+input[type="number"][data-v-9ef0beea] {
+  -moz-appearance: textfield;
+}
+.out[data-v-9ef0beea] {
+  width: 180px;
+  height: 40px;
+  background: #f1f3f6;
+  /* background: linear-gradient(145deg, #d9dbdd, #ffffff); */
+  box-shadow: 3px 3px 3px #c6c7ca inset, -3px -3px 3px #ffffff inset;
+  border-radius: 40px;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 4px;
+  align-items: center;
+}
+.btn[data-v-9ef0beea] {
+  width: 36px;
+  height: 36px;
+  background: #f1f3f6;
+  box-shadow: 2px 2px 4px #c6c7ca, -4px -4px 6px #ffffff;
+  border-radius: 18px;
+  text-align: center;
+  line-height: 34px;
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.4s;
+}
+.disabled[data-v-9ef0beea] {
+  box-shadow: none;
+  background-color: transparent;
+}
+.content[data-v-9ef0beea] {
+  flex: 1;
+  text-align: center;
+}
+.content > input[data-v-9ef0beea] {
+  width: 80px;
+  background-color: transparent;
+  outline: none;
+  padding: 3px 0px;
+  text-align: center;
+  font-size: 20px;
+  border: none;
+}
+.enter[data-v-9ef0beea] {
+  box-shadow: 1px 1px 2px #c6c7ca, -2px -2px 3px #ffffff;
+}
+.down[data-v-9ef0beea] {
+  box-shadow: 2px 2px 4px transparent, -3px -3px 6px transparent;
+}
+

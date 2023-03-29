@@ -5,7 +5,13 @@ import Vue2Editor from "vue2-editor";
 // import xpay from './galaxy-ui/lib'
 // import xsiderbar from './galaxy-ui/lib'
 // import galaxyUi from 'galaxyzz-ui'
-import galaxyUi from './galaxyZz-ui'
+// 引入压缩包
+// import galaxyUi from './galaxyZz-ui/lib/index.js'
+// import './galaxyZz-ui/lib/lib-style/index.min.css'
+
+// 引入源文件
+import galaxyUi from './galaxyZz-ui/tlib/index'
+
 import Code from '@/view/code'
 import './assets/publicCss.css'
 import scrollTop from './directives/ScrollTop'

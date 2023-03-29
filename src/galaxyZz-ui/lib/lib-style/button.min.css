@@ -1,0 +1,69 @@
+
+.btn[data-v-764d0416] {
+    border: none;
+    background-color: #f1f3f6;
+    box-shadow:  4px 4px 8px #c6c7ca,
+            -6px -6px 12px #ffffff;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease-out;
+    /* transition-duration: 1s; */
+}
+/* .btn:hover {
+    box-shadow:  2px 2px 4px #c6c7ca,
+            -3px -3px 6px #ffffff;
+} */
+.enter[data-v-764d0416] {
+    box-shadow:  2px 2px 4px #c6c7ca,
+            -3px -3px 6px #ffffff;
+}
+.down[data-v-764d0416] {
+    box-shadow:  2px 2px 4px transparent,
+            -3px -3px 6px transparent;
+}
+.hump[data-v-764d0416] {
+    background: linear-gradient(145deg, #ffffff, #f1f3f6);
+}
+.sunk[data-v-764d0416] {
+    background: linear-gradient(145deg, #d9dbdd, #ffffff);
+}
+.mid[data-v-764d0416] {
+    padding: 10px 20px;
+    /* height: 40px; */
+    /* width: auto; */
+}
+.midRound[data-v-764d0416] {
+    border-radius: 20px;
+}
+.small[data-v-764d0416] {
+    padding: 5px 11px;
+    width: auto;
+}
+.smallRound[data-v-764d0416] {
+    border-radius: 20px;
+}
+.large[data-v-764d0416] {
+    padding: 15px 30px;
+    /* width: auto; */
+    /* min-width: 100px; */
+}
+.largeRound[data-v-764d0416] {
+    border-radius: 30px;
+}
+.green[data-v-764d0416] {
+    background-color: #f0f9eb;
+    color: #67c23a;
+}
+.yellow[data-v-764d0416] {
+    background-color: #fdf6ec;
+    color: #e6a23c;
+}
+.red[data-v-764d0416] {
+    background-color: #fef0f0;
+    color: #f56c6c;
+}
+.disabled[data-v-764d0416] {
+    box-shadow:  2px 2px 4px inset #c6c7ca,
+            -3px -3px 6px inset #ffffff;
+    /* background-color: red; */
+}
+

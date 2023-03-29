@@ -1,0 +1,29 @@
+
+.out[data-v-5618b175] {
+    /* margin: 100px; */
+    position: relative;
+}
+.big[data-v-5618b175] {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    z-index: 99;
+}
+.big-2[data-v-5618b175] {
+    position: absolute;
+    overflow: hidden;
+    z-index: 99;
+}
+.big-img[data-v-5618b175] {
+    margin: 0;
+    position: absolute;
+}
+.big-hid[data-v-5618b175] {
+    opacity: 0;
+}
+.mask[data-v-5618b175] {
+    position: absolute;
+    background-color: rgba(225, 225, 225, 0.3);
+}
+
+

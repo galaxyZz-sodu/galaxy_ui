@@ -1,0 +1,23 @@
+
+.in[data-v-25d1f118] {
+    font-size: 12px;
+    padding: 6px 10px;
+    display: inline-block;
+    background-color: #f1f3f6;
+    box-shadow:  2px 2px 6px #c6c7ca,
+            -4px -4px 8px #ffffff;
+    border-radius: 5px;
+}
+.success[data-v-25d1f118] {
+    background-color: #f0f9eb;
+    color: #67c23a;
+}
+.warning[data-v-25d1f118] {
+    background-color: #fdf6ec;
+    color: #e6a23c;
+}
+.danger[data-v-25d1f118] {
+    background-color: #fef0f0;
+    color: #f56c6c;
+}
+
