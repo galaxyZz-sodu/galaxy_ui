@@ -35,36 +35,57 @@ export default {
 </script>
 
 <style scoped lang="less">
-.back {
-  // height: 100vh;
-  min-width: 1140px;
-  background-color: #f1f3f6;
+// @media screen and (max-width: 1030px) {
+//   .out {
+//     background-color: #f1f3f6;
+//     width: 800px;
+//     .siderBar {
+//       display: none;
+//     }
+//     .content {
+//       padding: 20px 10px;
+//       box-sizing: border-box;
+//     }
+//   }
+// }
+
+@media screen and (max-width: 450px) {
+  .out {
+    background-color: #f1f3f6;
+    width: 800px;
+    .siderBar {
+      display: block;
+    }
+    .content {
+      padding: 20px 10px;
+      box-sizing: border-box;
+    }
+  }
 }
-.out {
+@media screen and (min-width: 450px) {
+  .out {
   width: 1140px;
   height: 100vh;
   margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  // background: red;
-  // background-color: #f1f3f6;
+  display: flex;
   .siderBar {
-    // overflow: auto;
-    height: 100vh;
-    position: absolute;
-    left: 0;
+
   }
   .content {
-    position: absolute;
-    left: 280px;
     padding: 20px 10px;
     box-sizing: border-box;
     overflow-y: scroll;
     overflow-x: auto;
-    // background-color: red;
     max-height: 100vh;
   }
 }
+}
+.back {
+  // height: 100vh;
+  // min-width: 1140px;
+  background-color: #f1f3f6;
+}
+
 /* 整个滚动条 */
 ::-webkit-scrollbar {
   /* 对应纵向滚动条的宽度 */
