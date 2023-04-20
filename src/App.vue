@@ -82,7 +82,7 @@ export default {
 }
 .back {
   // height: 100vh;
-  // min-width: 1140px;
+  min-width: 1140px;
   background-color: #f1f3f6;
 }
 

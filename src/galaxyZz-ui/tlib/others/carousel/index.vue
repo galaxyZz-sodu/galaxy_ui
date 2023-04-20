@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="out" :style="{ height: height }">
-      <div class="content" :style="{ left: contentLeft + 'px' }">
+    <div class="carouselOut" :style="{ height: height + 'px', width: width + 'px'}">
+      <div class="content" :style="{ left: contentLeft + 'px', width: imgConut * width + 'px' }">
         <slot></slot>
       </div>
       <transition name="leftShow">
@@ -15,6 +15,9 @@
           <span class="iconfont icon-youjiantou"></span>
         </div>
       </transition>
+      <div class="carRoundList">
+        <div class="carRound" :class="{nowCarRound: imgIndex == i}" v-for="(i, index) in imgConut" :key="index"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,48 +28,73 @@ export default {
   data() {
     return {
       contentLeft: 0,
+      imgConut: 0,
+      imgIndex: 1
     };
   },
   props: {
     height: {
-      type: String,
-      default: "200px",
+      type: Number,
+      default: 200,
     },
+    width: {
+      type: Number,
+      default: 350
+    },
+    auto: {
+      type: Boolean,
+      default: false
+    },
+    circle: {
+      type: Boolean,
+      default: true
+    }
   },
   mounted() {
-    let count = document.getElementsByTagName("g-carousel-item").length;
-    console.log(count);
-    // setInterval(() => {
-    //     this.contentLeft -= 350
-    // }, 3000);
+    console.log(this.$slots.default.length);
+    this.imgConut = this.$slots.default.length;
+    if (this.auto) {
+      let timer = setInterval(() => {
+          this.contentLeft -= this.width;
+          this.imgIndex++;
+          if (this.imgIndex == this.imgConut) {
+            clearInterval(timer);
+          }
+      }, 3000);
+      return timer;
+    }
+    
   },
   methods: {
     slideLeft() {
-      this.contentLeft += 350;
+      if (this.imgIndex > 1) {
+        this.contentLeft += this.width;
+        this.imgIndex--;
+      }
+      
     },
     slideRight() {
-      this.contentLeft -= 350;
+      if (this.imgIndex < this.imgConut) {
+        this.contentLeft -= this.width;
+        this.imgIndex++;
+      }
+      
     },
   },
 };
 </script>
 
 <style scoped>
-.out {
-  width: 350px;
+.carouselOut {
   background-color: #f1f3f6;
   box-shadow: 2px 2px 6px #c6c7ca, -4px -6px 12px #ffffff;
   border-radius: 5px;
   position: relative;
-
   overflow: hidden;
 }
 .content {
-  width: 1750px;
   position: absolute;
   transition: left 0.2s ease;
-  /* left: -200px; */
-  /* float: left; */
 }
 span {
   font-size: 16px;
@@ -97,14 +125,32 @@ span {
   text-align: center;
   line-height: 30px;
   z-index: 9;
-  /* display: none; */
   opacity: 0;
   transition: all 0.4s ease;
 }
-.out:hover .rightArrow {
+.carRoundList {
+  position: absolute;
+  z-index: 9;
+  display: flex;
+  bottom: 2px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.carRound {
+  margin: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.6);
+
+}
+.nowCarRound {
+  background-color: #ffffff;
+}
+.carouselOut:hover .rightArrow {
   opacity: 1;
 }
-.out:hover .leftArrow {
+.carouselOut:hover .leftArrow {
   opacity: 1;
 }
 
