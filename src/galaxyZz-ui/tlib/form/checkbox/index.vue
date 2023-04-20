@@ -65,8 +65,6 @@ export default {
         margin-right: 5px;
         background: #f1f3f6;
         border-radius: 2px;
-        transition: all 0.4s ease-out;
-        transition: box-shadow 0.4s ease-out;
         box-shadow:  2px 2px 4px #c6c7ca,
                 -4px -4px 6px #ffffff;
     }
