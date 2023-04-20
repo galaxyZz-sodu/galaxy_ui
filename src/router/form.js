@@ -44,4 +44,9 @@ export default [
         name: 'upload',
         component: () => import('@/components/form/Upload.vue'),
     },
+    {
+        path: '/transfer',
+        name: 'transfer',
+        component: () => import('@/components/form/Transfer.vue'),
+    },
 ]

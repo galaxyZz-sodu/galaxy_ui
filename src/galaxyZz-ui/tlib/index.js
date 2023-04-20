@@ -10,6 +10,7 @@ import checkbox from './form/checkbox'
 import inputNumber from './form/inputNumber'
 import select from './form/select'
 import slider from './form/slider'
+import transfer from './form/transfer'
 import progress from './data/progress'
 import tag from './data/tag'
 import badge from './data/badge'
@@ -44,6 +45,7 @@ import descriptionsItem from './data/descriptionsItem'
         Vue.use(inputNumber);
         Vue.use(select);
         Vue.use(slider);
+        Vue.use(transfer);
         Vue.use(progress);
         Vue.use(tag);
         Vue.use(badge);

@@ -105,6 +105,7 @@ export default {
                 {name: 'slider 滑块', router: 'slider'},
                 {name: 'Switch 开关', router: 'switch'},
                 {name: 'Upload 上传', router: 'upload'},
+                {name: 'Transfer 穿梭框', router: 'transfer'},
             ],
             navigation: [
                 {name: 'Steps 步骤条', router: 'steps'},
@@ -130,7 +131,7 @@ export default {
             console.log(e.target.dataset.router);
             this.selectName = e.target.dataset.router
             this.$router.push({
-                path: `/${e.target.dataset.router}`
+                path: `/${this.selectName}`
             })
         },
         goHome() {
