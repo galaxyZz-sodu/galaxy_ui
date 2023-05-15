@@ -29,9 +29,8 @@ export default {
     },
     mounted() {
         this.currentIndex = this.$parent.$children.findIndex(
-      (e) => e._uid === this._uid
-    );
-    console.log(this.currentIndex);
+            (e) => e._uid === this._uid
+        );
     }
 };
 </script>
