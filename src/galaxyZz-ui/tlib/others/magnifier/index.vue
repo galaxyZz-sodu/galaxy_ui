@@ -116,7 +116,7 @@ export default {
             this.mouseY = e.pageY;
             this.nowTop = e.pageY
             this.scrollY = this.originTop - this.$refs.min.getBoundingClientRect().top
-            console.log('yyy',this.scrollY);
+            // console.log('yyy',this.scrollY);
             // console.log('666',this.$refs.min.getBoundingClientRect().top);
             // console.log('x',this.mouseX)
             // console.log(e.clientY );
@@ -131,11 +131,11 @@ export default {
             this.MaskShow = false;
         },
         getElementLeftAndTop(element){
-            console.log('scroll',element.scrollTop)
+            // console.log('scroll',element.scrollTop)
             var left = element.offsetLeft;// 当前元素左边距
             var top= element.offsetTop;// 当前元素上边距
             var parent= element.offsetParent;// 当前元素的父级元素
-            console.log(parent)
+            // console.log(parent)
             while (parent!== null){
                 left += parent.offsetLeft;// 累加左边距
                 top+= parent.offsetTop;// 累加上边距
@@ -144,19 +144,19 @@ export default {
                 
             }
             // console.log(left)
-                console.log('eleTop',top)
+                // console.log('eleTop',top)
             this.outX = left;
-            console.log('or', this.originTop);
-            console.log('now',element.getBoundingClientRect().top)
+            // console.log('or', this.originTop);
+            // console.log('now',element.getBoundingClientRect().top)
             
             this.outY = top;
         },
         isScroll() {
-            console.log('j')
+            // console.log('j')
         }
     },
     mounted() {
-        console.log('87', this.$refs.min.getBoundingClientRect().top);
+        // console.log('87', this.$refs.min.getBoundingClientRect().top);
         var outImg = document.querySelector('.out');
         var minImg = document.querySelector('.min');
         var bigImg = document.querySelector('.big');
