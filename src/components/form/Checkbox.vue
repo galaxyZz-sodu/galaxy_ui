@@ -5,18 +5,7 @@
         <div class="secondTitle">基础用法</div>
         <g-checkbox v-model="check" @change="changeCheck" :options="options">
         </g-checkbox>
-        <div class="thirdTitle">
-            template
-        </div>
-        <div class="code">
-            <div v-html="basicUsageHtml"></div>
-        </div>
-        <div class="thirdTitle">
-            javascript
-        </div>
-        <div class="code">
-            <div v-html="basicUsageJs"></div>
-        </div>
+        <Code :js="basicUsageJs" :html="basicUsageHtml"></Code>
         <div class="tabelTitle">
             checkbox参数
         </div>

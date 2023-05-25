@@ -10,16 +10,8 @@
         <div class="thirdTitle">
             template
         </div>
-        <div class="code">
-            <div v-html="basicUsageHTML"></div>
-        </div>
-        <div class="thirdTitle">
-            javascript
-        </div>
-        <div class="code">
-            <div v-html="basicUsageJs"></div>
-        </div>
-
+        
+        <Code :js="basicUsageJs" :html="basicUsageHTML"></Code>
         <div class="secondTitle">
             输入事件
         </div>
@@ -28,18 +20,8 @@
         </div>
 
         <g-input-number v-model="number" :min="0" :max="10" @change="inputChange"></g-input-number>
-        <div class="thirdTitle">
-            template
-        </div>
-        <div class="code">
-            <div v-html="eventHTML"></div>
-        </div>
-        <div class="thirdTitle">
-            javascript
-        </div>
-        <div class="code">
-            <div v-html="eventJs"></div>
-        </div>
+
+        <Code :js="eventJs" :html="eventHTML"></Code>
         <div class="tabelTitle">
             inputNumber参数
         </div>

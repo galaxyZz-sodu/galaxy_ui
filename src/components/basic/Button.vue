@@ -19,6 +19,7 @@
         <div class="code">
             <div v-html="typeContent"></div>
         </div>
+            <Code :jsShow="false" :html="typeContent"></Code>
         <div class="secondTitle">自定义大小和圆角</div>
         <g-button size="small" :round="true">按钮</g-button>
         <g-button size="mid" :round="true">按钮</g-button>

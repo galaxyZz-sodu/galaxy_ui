@@ -52,19 +52,27 @@ export default {
 @media screen and (max-width: 450px) {
   .out {
     background-color: #f1f3f6;
-    width: 800px;
+    width: 100%;
     .siderBar {
       display: block;
     }
     .content {
       padding: 20px 10px;
+      max-width: 450px;
       box-sizing: border-box;
+      overflow: hidden;
     }
   }
+  .back {
+  // height: 100vh;
+  max-width: 450px;
+  background-color: #f1f3f6;
+}
 }
 @media screen and (min-width: 450px) {
   .out {
-  width: 1140px;
+  // width: 1140px;
+  width: 80%;
   height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -75,16 +83,19 @@ export default {
     padding: 20px 10px;
     box-sizing: border-box;
     overflow-y: scroll;
-    overflow-x: auto;
+    overflow-x: hidden;
+    width: 100%;
+    // overflow-x: auto;
     max-height: 100vh;
   }
 }
-}
 .back {
   // height: 100vh;
-  min-width: 1140px;
+  // min-width: 1140px;
   background-color: #f1f3f6;
 }
+}
+
 
 /* 整个滚动条 */
 ::-webkit-scrollbar {

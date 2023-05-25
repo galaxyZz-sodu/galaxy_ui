@@ -7,19 +7,7 @@
             基础用法
         </div>
         <g-input v-model="message" style="width: 300px" @change="inputChange"></g-input>
-        <div class="thirdTitle">
-            template
-        </div>
-        <div class="code">
-            <div v-html="basicUsageHTML"></div>
-        </div>
-        <div class="thirdTitle">
-            javascript
-        </div>
-        <div class="code">
-            <div v-html="basicUsageJs"></div>
-        </div>
-
+        <Code :js="basicUsageJs" :html="basicUsageHTML"></Code>
         <div class="secondTitle">
             输入事件
         </div>
@@ -27,18 +15,7 @@
             当输入框内容发生改变时触发
         </div>
         <g-input v-model="message" style="width: 300px" @change="inputChange"></g-input>
-        <div class="thirdTitle">
-            template
-        </div>
-        <div class="code">
-            <div v-html="eventHTML"></div>
-        </div>
-        <div class="thirdTitle">
-            javascript
-        </div>
-        <div class="code">
-            <div v-html="eventJs"></div>
-        </div>
+        <Code :js="eventJs" :html="eventHTML"></Code>
     </div>
 </template>
 
