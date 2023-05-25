@@ -13,6 +13,7 @@ import Vue2Editor from "vue2-editor";
 import galaxyUi from './galaxyZz-ui/tlib/index'
 
 import Code from '@/view/code'
+import TableScroll from '@/view/TableScroll'
 import './assets/publicCss.css'
 import scrollTop from './directives/ScrollTop'
 // Vue.config.productionTip = false;
@@ -21,6 +22,7 @@ import scrollTop from './directives/ScrollTop'
 Vue.use(galaxyUi);
 Vue.use(Vue2Editor);
 Vue.component('Code', Code);
+Vue.component('TableScroll', TableScroll)
 Vue.directive('scrollTop', scrollTop)
 new Vue({
   router,

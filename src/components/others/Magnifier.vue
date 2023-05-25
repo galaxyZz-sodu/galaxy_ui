@@ -15,13 +15,15 @@
         <div class="tabelTitle">
             magnifier参数
         </div>
-        <g-table :data="tableData" class="table">
-            <g-table-column prop="parameter" label="参数" :width="100"></g-table-column>
-            <g-table-column prop="explain" label="解释" :width="150"></g-table-column>
-            <g-table-column prop="type" label="数据类型" :width="150"></g-table-column>
-            <g-table-column prop="select" label="可选值" :width="150"></g-table-column>
-            <g-table-column prop="default" label="默认值" :width="100"></g-table-column>
-        </g-table>
+        <TableScroll>
+            <g-table :data="tableData" class="table">
+                <g-table-column prop="parameter" label="参数" :width="100"></g-table-column>
+                <g-table-column prop="explain" label="解释" :width="150"></g-table-column>
+                <g-table-column prop="type" label="数据类型" :width="150"></g-table-column>
+                <g-table-column prop="select" label="可选值" :width="150"></g-table-column>
+                <g-table-column prop="default" label="默认值" :width="100"></g-table-column>
+            </g-table>
+        </TableScroll>
     </div>
 </template>
 

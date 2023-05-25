@@ -11,28 +11,34 @@
         <div class="tabelTitle">
             upload参数
         </div>
-        <g-table :data="tableData" class="table">
-            <g-table-column prop="parameter" label="参数" :width="100"></g-table-column>
-            <g-table-column prop="explain" label="解释" :width="200"></g-table-column>
-            <g-table-column prop="type" label="数据类型" :width="100"></g-table-column>
-            <g-table-column prop="select" label="可选值" :width="100"></g-table-column>
-            <g-table-column prop="default" label="默认值" :width="100"></g-table-column>
-        </g-table>
+        <TableScroll>
+            <g-table :data="tableData" class="table">
+                <g-table-column prop="parameter" label="参数" :width="100"></g-table-column>
+                <g-table-column prop="explain" label="解释" :width="200"></g-table-column>
+                <g-table-column prop="type" label="数据类型" :width="100"></g-table-column>
+                <g-table-column prop="select" label="可选值" :width="100"></g-table-column>
+                <g-table-column prop="default" label="默认值" :width="100"></g-table-column>
+            </g-table>
+        </TableScroll>
         <div class="tabelTitle">
             upload事件
         </div>
-        <g-table :data="event" class="table">
-            <g-table-column prop="eventName" label="事件名" :width="150"></g-table-column>
-            <g-table-column prop="explain" label="解释" :width="250"></g-table-column>
-            <g-table-column prop="callBackPara" label="回调参数" :width="200"></g-table-column>
-        </g-table>
+        <TableScroll>
+            <g-table :data="event" class="table">
+                <g-table-column prop="eventName" label="事件名" :width="150"></g-table-column>
+                <g-table-column prop="explain" label="解释" :width="250"></g-table-column>
+                <g-table-column prop="callBackPara" label="回调参数" :width="200"></g-table-column>
+            </g-table>
+        </TableScroll>
         <div class="tabelTitle">
             step插槽
         </div>
-        <g-table :data="slotData" class="table">
-            <g-table-column prop="parameter" label="参数" :width="200"></g-table-column>
-            <g-table-column prop="explain" label="解释" :width="300"></g-table-column>
-        </g-table>
+        <TableScroll>
+            <g-table :data="slotData" class="table">
+                <g-table-column prop="parameter" label="参数" :width="200"></g-table-column>
+                <g-table-column prop="explain" label="解释" :width="300"></g-table-column>
+            </g-table>
+        </TableScroll>
     </div>
 </template>
 
