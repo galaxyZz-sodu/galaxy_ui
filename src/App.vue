@@ -1,7 +1,8 @@
 <template>
   <div class="back">
     <div class="out">
-      <SiderBar2 class="siderBar"></SiderBar2>
+      <SiderBar3 class="siderBar3" @changeSiderShow="changeShow"></SiderBar3>
+      <SiderBar2 class="siderBar" :style="{display: !isSiderBar2Show && innerWidth < 450 ? 'none' : 'block' ,}"></SiderBar2>
       <div class="content" v-scrollTop>
         <router-view></router-view>
       </div>
@@ -12,24 +13,40 @@
 <script>
 import SiderBar2 from "@/components/SiderBar2.vue";
 import HelloWorld from "./components/HelloWorld.vue";
-
+import SiderBar3 from './components/SiderBar3.vue'
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      isSiderBar2Show: false,
+      innerWidth: window.innerWidth
+    };
   },
   components: {
     HelloWorld,
     SiderBar2,
+    SiderBar3
   },
-  methods: {},
+  watch: {
+    innerWidth: function(n, o) {
+      // console.log(n);
+    }
+  },
+  methods: {
+    changeShow() {
+      this.isSiderBar2Show = !this.isSiderBar2Show;
+    }
+  },
   created() {},
   mounted() {
     let con = document.querySelector(".content");
     con.scrollTo(0, 0);
-    // this.$nextTick(() => {
-    //   console.log('hss');
-    // })
+    this.innerWidth = window.innerWidth;
+    window.onresize = () => {
+      return (() => {
+        this.innerWidth = window.innerWidth;
+      })()
+    }
   },
 };
 </script>
@@ -48,14 +65,13 @@ export default {
 //     }
 //   }
 // }
-
 @media screen and (max-width: 450px) {
   .out {
     background-color: #f1f3f6;
     width: 100%;
-    .siderBar {
-      display: block;
-    }
+    // .siderBar {
+    //   display: none;
+    // }
     .content {
       padding: 20px 10px;
       max-width: 450px;
@@ -76,8 +92,8 @@ export default {
   height: 100vh;
   margin: 0 auto;
   display: flex;
-  .siderBar {
-
+  .siderBar3 {
+    display: none;
   }
   .content {
     padding: 20px 10px;

@@ -38,15 +38,37 @@ export default {
 </script>
 
 <style scoped>
-.samllTitle {
+/* .samllTitle {
     padding: 40px 10px 10px;
-    font-size: 40px;
+    font-size: 3vw;
 }
 .welTitle {
   padding: 10px 10px;
-  font-size: 100px;
-}
+  font-size: 5rem;
+} */
 .needTitle {
   margin-top: 30px;
+}
+
+@media screen and (max-width: 450px) {
+  .samllTitle {
+      padding: 10px 10px 10px;
+      font-size: 7vw;
+  }
+  .welTitle {
+    padding: 10px 10px;
+    font-size: 15vw;
+  }
+}
+@media screen and (min-width: 450px) {
+  .samllTitle {
+      padding: 40px 10px 10px;
+      font-size: 30px;
+  }
+  .welTitle {
+    padding: 10px 10px;
+    font-size: 100px;
+  }
+
 }
 </style>
